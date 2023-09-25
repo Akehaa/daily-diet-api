@@ -22,52 +22,33 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# App
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+daily diet control app
 
-## Installation
+## Functional Requirements
+- [] It should be able to register;
+- [] It should be able to authenticate;
+- [] It should be able to record a meal that has been completed, including:
+  - Name;
+  - Description;
+  - Date and Hour;
+  - Is it on the diet or not;
+- [] It should be able to edit a meal, being able to change all the data above;
+- [] It should be able to delete a meal;
+- [] It should be able to list all the meals of a user;
+- [] It should be able to view a specific meal;
+- [] It should be able to get all the user metrics, including:
+  - Total number of meals recorded;
+  - Total number of meals in the diet;
+  - Total number of meals out the diet;
+  - Best sequence of meals within the diet;
 
-```bash
-$ npm install
-```
+## Business Requirements
+- [] It should be able to identify the user among the requests;
+- [] The user can only view, edit and delete meals that it created;
+- [] The user shouldn't be able to register with the same email;
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Non-functional Requirements
+- [] User password must be encrypted;
+- [] User must be identified by a JWT;
