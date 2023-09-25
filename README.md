@@ -10,7 +10,7 @@
 daily diet control app
 
 ## Functional Requirements
-- [] It should be able to register;
+- [x] It should be able to register;
 - [] It should be able to authenticate;
 - [] It should be able to record a meal that has been completed, including:
   - Name;
@@ -28,7 +28,7 @@ daily diet control app
   - Best sequence of meals within the diet;
 
 ## Business Requirements
-- [] It should be able to identify the user among the requests;
+- [x] It should be able to identify the user among the requests;
 - [] The user can only view, edit and delete meals that it created;
 - [] The user shouldn't be able to register with the same email;
 
