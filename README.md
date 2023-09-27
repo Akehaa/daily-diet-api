@@ -19,7 +19,7 @@ daily diet control app
   - Is it on the diet or not;
 - [] It should be able to edit a meal, being able to change all the data above;
 - [] It should be able to delete a meal;
-- [] It should be able to list all the meals of a user;
+- [] It should be able to list all the meals of an user;
 - [] It should be able to view a specific meal;
 - [] It should be able to get all the user metrics, including:
   - Total number of meals recorded;
@@ -33,5 +33,5 @@ daily diet control app
 - [x] The user shouldn't be able to register with the same email;
 
 ## Non-functional Requirements
-- [] User password must be encrypted;
+- [x] User password must be encrypted;
 - [] User must be identified by a JWT;
