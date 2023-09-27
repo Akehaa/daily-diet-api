@@ -1,6 +1,9 @@
-import { Either, right } from '@/core/types/either';
+import { Either, left, right } from '@/core/types/either';
 import { User } from '../../enterprise/entities/user';
 import { UsersRepository } from '../repositories/users-repository';
+import { UserAlreadyExistsError } from './errors/user-already-exists-error';
+import { Injectable } from '@nestjs/common';
+
 interface RegisterUseCaseRequest {
   name: string;
   email: string;
@@ -8,12 +11,13 @@ interface RegisterUseCaseRequest {
 }
 
 type RegisterUseCaseResponse = Either<
-  null,
+  UserAlreadyExistsError,
   {
     user: User;
   }
 >;
 
+@Injectable()
 export class RegisterUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
@@ -27,6 +31,12 @@ export class RegisterUseCase {
       email,
       password,
     });
+
+    const userWithSameEmail = await this.usersRepository.findByEmail(email);
+
+    if (userWithSameEmail) {
+      return left(new UserAlreadyExistsError(email));
+    }
 
     await this.usersRepository.create(user);
 
