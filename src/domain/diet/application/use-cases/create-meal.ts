@@ -1,4 +1,4 @@
-import { Either, right } from '@/core/types/either';
+import { Either, right } from '@/core/either';
 import { MealsRepository } from '@/domain/diet/application/repositories/meals-repository';
 import { Injectable } from '@nestjs/common';
 import { Meal } from '../../enterprise/entities/meal';

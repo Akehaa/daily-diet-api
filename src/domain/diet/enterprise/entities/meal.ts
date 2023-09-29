@@ -19,20 +19,40 @@ export class Meal extends Entity<MealProps> {
     return this.props.name;
   }
 
+  set name(name: string) {
+    this.props.name = name;
+  }
+
   get description() {
     return this.props.description;
+  }
+
+  set description(description: string) {
+    this.props.description = description;
   }
 
   get date() {
     return this.props.date;
   }
 
+  set date(date: string) {
+    this.props.date = date;
+  }
+
   get hour() {
     return this.props.hour;
   }
 
+  set hour(hour: string) {
+    this.props.hour = hour;
+  }
+
   get isOnTheDiet() {
     return this.props.isOnTheDiet;
+  }
+
+  set isOnTheDiet(isOnTheDiet: boolean) {
+    this.props.isOnTheDiet = isOnTheDiet;
   }
 
   static create(props: MealProps, id?: UniqueEntityId) {
