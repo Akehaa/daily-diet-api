@@ -2,8 +2,10 @@ import { Either, right } from '@/core/types/either';
 import { MealsRepository } from '@/domain/diet/application/repositories/meals-repository';
 import { Injectable } from '@nestjs/common';
 import { Meal } from '../../enterprise/entities/meal';
+import { UniqueEntityId } from '@/core/entities/unique-entity-id';
 
 interface CreateMealUseCaseRequest {
+  userId: string;
   name: string;
   description: string;
   date: string;
@@ -18,6 +20,7 @@ export class CreateMealUseCase {
   constructor(private mealsRepository: MealsRepository) {}
 
   async execute({
+    userId,
     name,
     description,
     date,
@@ -25,6 +28,7 @@ export class CreateMealUseCase {
     isOnTheDiet,
   }: CreateMealUseCaseRequest): Promise<CreateMealUseCaseResponse> {
     const meal = Meal.create({
+      userId: new UniqueEntityId(userId),
       name,
       description,
       date,

@@ -12,6 +12,7 @@ describe('CreateMeal', () => {
 
   it('should be able to create a meal', async () => {
     const result = await sut.execute({
+      userId: '1',
       name: 'Meat',
       description: 'hamburger',
       date: '2023-09-28',

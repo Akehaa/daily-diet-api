@@ -2,6 +2,7 @@ import { Entity } from '@/core/entities/entity';
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';
 
 export interface MealProps {
+  userId: UniqueEntityId;
   name: string;
   description: string;
   date: string;
@@ -10,6 +11,10 @@ export interface MealProps {
 }
 
 export class Meal extends Entity<MealProps> {
+  get userId() {
+    return this.props.userId;
+  }
+
   get name() {
     return this.props.name;
   }
