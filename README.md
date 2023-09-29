@@ -12,7 +12,7 @@ daily diet control app
 ## Functional Requirements
 - [x] It should be able to register;
 - [] It should be able to authenticate;
-- [] It should be able to record a meal that has been completed, including:
+- [x] It should be able to record a meal that has been completed, including:
   - Name;
   - Description;
   - Date and Hour;
