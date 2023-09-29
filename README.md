@@ -17,7 +17,7 @@ daily diet control app
   - Description;
   - Date and Hour;
   - Is it on the diet or not;
-- [] It should be able to edit a meal, being able to change all the data above;
+- [x] It should be able to edit a meal, being able to change all the data above;
 - [] It should be able to delete a meal;
 - [] It should be able to list all the meals of an user;
 - [] It should be able to view a specific meal;

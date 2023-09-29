@@ -1,5 +1,6 @@
 import { Entity } from '@/core/entities/entity';
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';
+import { Optional } from '@/core/types/optional';
 
 export interface MealProps {
   userId: UniqueEntityId;
@@ -8,6 +9,7 @@ export interface MealProps {
   date: string;
   hour: string;
   isOnTheDiet: boolean;
+  createdAt: Date;
 }
 
 export class Meal extends Entity<MealProps> {
@@ -55,8 +57,14 @@ export class Meal extends Entity<MealProps> {
     this.props.isOnTheDiet = isOnTheDiet;
   }
 
-  static create(props: MealProps, id?: UniqueEntityId) {
-    const meal = new Meal(props, id);
+  static create(props: Optional<MealProps, 'createdAt'>, id?: UniqueEntityId) {
+    const meal = new Meal(
+      {
+        ...props,
+        createdAt: props.createdAt ?? new Date(),
+      },
+      id,
+    );
 
     return meal;
   }

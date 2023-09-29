@@ -1,4 +1,4 @@
-import { Either, left } from '@/core/either';
+import { Either, left, right } from '@/core/either';
 import { MealsRepository } from '../repositories/meals-repository';
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error';
 import { NotAllowedError } from '@/core/errors/errors/not-allowed-error';
@@ -50,5 +50,9 @@ export class EditMealUseCase {
     meal.isOnTheDiet = isOnTheDiet;
 
     await this.mealsRepository.save(meal);
+
+    return right({
+      meal,
+    });
   }
 }
