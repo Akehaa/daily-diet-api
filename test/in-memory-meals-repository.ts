@@ -23,4 +23,10 @@ export class InMemoryMealsRepository extends MealsRepository {
 
     this.items[itemIndex] = meal;
   }
+
+  async delete(meal: Meal) {
+    const itemIndex = this.items.findIndex((item) => item.id === meal.id);
+
+    this.items.splice(itemIndex, 1);
+  }
 }

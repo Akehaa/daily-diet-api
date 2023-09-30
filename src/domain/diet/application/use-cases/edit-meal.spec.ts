@@ -33,8 +33,6 @@ describe('Edit Meal', () => {
       isOnTheDiet: false,
     });
 
-    console.log(inMemoryMealsRepository.items[0]);
-
     expect(inMemoryMealsRepository.items[0]).toMatchObject({
       name: 'Test meal',
       description: 'Test description',
