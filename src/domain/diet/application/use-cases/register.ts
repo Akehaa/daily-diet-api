@@ -2,7 +2,6 @@ import { Either, left, right } from '@/core/either';
 import { User } from '../../enterprise/entities/user';
 import { UsersRepository } from '../repositories/users-repository';
 import { UserAlreadyExistsError } from './errors/user-already-exists-error';
-import { Injectable } from '@nestjs/common';
 import { hash } from 'bcryptjs';
 
 interface RegisterUseCaseRequest {
@@ -18,7 +17,6 @@ type RegisterUseCaseResponse = Either<
   }
 >;
 
-@Injectable()
 export class RegisterUseCase {
   constructor(private usersRepository: UsersRepository) {}
 

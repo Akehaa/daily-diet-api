@@ -19,7 +19,7 @@ daily diet control app
   - Is it on the diet or not;
 - [x] It should be able to edit a meal, being able to change all the data above;
 - [x] It should be able to delete a meal;
-- [] It should be able to list all the meals of an user;
+- [x] It should be able to list all the meals of an user;
 - [] It should be able to view a specific meal;
 - [] It should be able to get all the user metrics, including:
   - Total number of meals recorded;
@@ -29,7 +29,7 @@ daily diet control app
 
 ## Business Requirements
 - [x] It should be able to identify the user among the requests;
-- [] The user can only view meals that it created;
+- [x] The user can only view meals that it created;
 - [x] The user can only edit meals that it created;
 - [x] The user can only delete meals that it created;
 - [x] The user shouldn't be able to register with the same email;
