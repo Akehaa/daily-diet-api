@@ -29,7 +29,9 @@ daily diet control app
 
 ## Business Requirements
 - [x] It should be able to identify the user among the requests;
-- [] The user can only view, edit and delete meals that it created;
+- [] The user can only view meals that it created;
+- [x] The user can only edit meals that it created;
+- [x] The user can only delete meals that it created;
 - [x] The user shouldn't be able to register with the same email;
 
 ## Non-functional Requirements

@@ -5,4 +5,5 @@ export abstract class MealsRepository {
   abstract findById(id: string): Promise<Meal | null>;
   abstract save(meal: Meal): Promise<void>;
   abstract delete(meal: Meal): Promise<void>;
+  abstract findManyById(userId: string): Promise<Meal[]>;
 }

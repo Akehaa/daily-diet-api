@@ -18,6 +18,14 @@ export class InMemoryMealsRepository extends MealsRepository {
     return meal;
   }
 
+  async findManyById(userId: string) {
+    const meals = this.items.filter(
+      (meal) => meal.userId.toString() === userId,
+    );
+
+    return meals;
+  }
+
   async save(meal: Meal) {
     const itemIndex = this.items.findIndex((item) => item.id === meal.id);
 
