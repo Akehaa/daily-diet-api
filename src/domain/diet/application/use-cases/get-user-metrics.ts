@@ -1,13 +1,13 @@
-import { Either, right } from '@/core/either';
-import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error';
+import { Either, left, right } from '@/core/either';
 import { MealsRepository } from '../repositories/meals-repository';
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error';
 
 interface getUserMetricsUseCaseRequest {
   userId: string;
 }
 
 type getUserMetricsUseCaseResponse = Either<
-  ResourceNotFoundError,
+  NotAllowedError,
   {
     totalMeals: number;
     totalMealsOnDiet: number;
@@ -32,6 +32,10 @@ export class GetUserMetricsUseCase {
 
     const bestSequenceOfMeals =
       await this.mealsRepository.countSequenceOfTrueBooleans(userId);
+
+    if (!totalMeals) {
+      return left(new NotAllowedError());
+    }
 
     return right({
       totalMeals,
