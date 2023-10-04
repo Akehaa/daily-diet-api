@@ -20,7 +20,7 @@ daily diet control app
 - [x] It should be able to edit a meal, being able to change all the data above;
 - [x] It should be able to delete a meal;
 - [x] It should be able to list all the meals of an user;
-- [] It should be able to view a specific meal;
+- [x] It should be able to view a specific meal;
 - [] It should be able to get all the user metrics, including:
   - Total number of meals recorded;
   - Total number of meals in the diet;
