@@ -1,10 +1,10 @@
 import { Entity } from 'src/core/entities/entity';
 import { UniqueEntityId } from 'src/core/entities/unique-entity-id';
 
-interface UserProps {
+export interface UserProps {
   name: string;
   email: string;
-  password_hash: string;
+  password: string;
 }
 
 export class User extends Entity<UserProps> {
@@ -16,8 +16,8 @@ export class User extends Entity<UserProps> {
     return this.props.email;
   }
 
-  get password_hash() {
-    return this.props.password_hash;
+  get password() {
+    return this.props.password;
   }
 
   static create(props: UserProps, id?: UniqueEntityId) {

@@ -2,15 +2,19 @@ import { describe, expect, it } from 'vitest';
 import { RegisterUseCase } from './register';
 import { InMemoryUsersRepository } from 'test/in-memory-users-repository';
 import { UserAlreadyExistsError } from './errors/user-already-exists-error';
-import { compare } from 'bcryptjs';
+import { FakeHasher } from 'test/cryptography/fake-hasher';
 
 let inMemoryUsersRepository: InMemoryUsersRepository;
+let fakeHasher: FakeHasher;
+
 let sut: RegisterUseCase;
 
 describe('Register use case', () => {
   beforeEach(() => {
     inMemoryUsersRepository = new InMemoryUsersRepository();
-    sut = new RegisterUseCase(inMemoryUsersRepository);
+    fakeHasher = new FakeHasher();
+
+    sut = new RegisterUseCase(inMemoryUsersRepository, fakeHasher);
   });
 
   it('should be able to register', async () => {
@@ -30,18 +34,16 @@ describe('Register use case', () => {
   });
 
   it('should hash user password upon registration', async () => {
-    await sut.execute({
+    const result = await sut.execute({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
     });
 
-    const isPasswordCorrectlyHashed = await compare(
-      '123456',
-      inMemoryUsersRepository.items[0].password_hash,
-    );
+    const hashedPassword = await fakeHasher.hash('123456');
 
-    expect(isPasswordCorrectlyHashed).toBe(true);
+    expect(result.isRight()).toBe(true);
+    expect(inMemoryUsersRepository.items[0].password).toEqual(hashedPassword);
   });
 
   it('should not be able to register with the same email', async () => {
