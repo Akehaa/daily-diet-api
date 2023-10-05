@@ -3,6 +3,7 @@ import { User } from '../../enterprise/entities/user';
 import { UsersRepository } from '../repositories/users-repository';
 import { UserAlreadyExistsError } from './errors/user-already-exists-error';
 import { hash } from 'bcryptjs';
+import { Injectable } from '@nestjs/common';
 
 interface RegisterUseCaseRequest {
   name: string;
@@ -17,6 +18,7 @@ type RegisterUseCaseResponse = Either<
   }
 >;
 
+@Injectable()
 export class RegisterUseCase {
   constructor(private usersRepository: UsersRepository) {}
 

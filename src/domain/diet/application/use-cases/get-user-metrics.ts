@@ -1,6 +1,7 @@
 import { Either, left, right } from '@/core/either';
 import { MealsRepository } from '../repositories/meals-repository';
 import { NotAllowedError } from '@/core/errors/errors/not-allowed-error';
+import { Injectable } from '@nestjs/common';
 
 interface getUserMetricsUseCaseRequest {
   userId: string;
@@ -16,6 +17,7 @@ type getUserMetricsUseCaseResponse = Either<
   }
 >;
 
+@Injectable()
 export class GetUserMetricsUseCase {
   constructor(private mealsRepository: MealsRepository) {}
 

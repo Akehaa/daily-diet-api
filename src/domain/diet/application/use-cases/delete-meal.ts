@@ -2,6 +2,7 @@ import { Either, left, right } from '@/core/either';
 import { NotAllowedError } from '@/core/errors/errors/not-allowed-error';
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error';
 import { MealsRepository } from '../repositories/meals-repository';
+import { Injectable } from '@nestjs/common';
 
 interface DeleteMealUseCaseRequest {
   mealId: string;
@@ -13,6 +14,7 @@ type DeleteMealUseCaseResponse = Either<
   Record<string, never>
 >;
 
+@Injectable()
 export class DeleteMealUseCase {
   constructor(private mealsRepository: MealsRepository) {}
 

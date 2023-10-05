@@ -1,6 +1,7 @@
 import { MealsRepository } from '@/domain/diet/application/repositories/meals-repository';
 import { Either, right } from '@/core/either';
 import { Meal } from '../../enterprise/entities/meal';
+import { Injectable } from '@nestjs/common';
 
 interface FetchUserMealsUseCaseRequest {
   userId: string;
@@ -13,6 +14,7 @@ type FetchUserMealsUseCaseResponse = Either<
   }
 >;
 
+@Injectable()
 export class FetchUserMealsUseCase {
   constructor(private mealsRepository: MealsRepository) {}
 
