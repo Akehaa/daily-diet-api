@@ -36,4 +36,4 @@ daily diet control app
 
 ## Non-functional Requirements
 - [x] User password must be encrypted;
-- [] User must be identified by a JWT;
+- [x] User must be identified by a JWT;

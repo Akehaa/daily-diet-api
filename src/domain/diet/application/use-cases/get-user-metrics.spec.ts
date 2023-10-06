@@ -1,4 +1,4 @@
-import { InMemoryMealsRepository } from 'test/in-memory-meals-repository';
+import { InMemoryMealsRepository } from 'test/repositories/in-memory-meals-repository';
 import { GetUserMetricsUseCase } from './get-user-metrics';
 import { makeMeal } from 'test/factories/make-meal';
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';

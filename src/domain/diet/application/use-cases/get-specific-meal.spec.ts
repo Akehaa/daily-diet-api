@@ -1,5 +1,5 @@
 import { expect } from 'vitest';
-import { InMemoryMealsRepository } from 'test/in-memory-meals-repository';
+import { InMemoryMealsRepository } from 'test/repositories/in-memory-meals-repository';
 import { GetSpecificMealUseCase } from './get-specific-meal';
 import { makeMeal } from 'test/factories/make-meal';
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';

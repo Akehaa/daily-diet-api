@@ -1,16 +1,16 @@
-import { RegisterUseCase } from '@/domain/diet/application/use-cases/register';
-import { Public } from '@/infra/auth/public';
 import {
-  BadRequestException,
   Body,
-  ConflictException,
   Controller,
   HttpCode,
   Post,
   UsePipes,
+  BadRequestException,
+  ConflictException,
 } from '@nestjs/common';
+import { ZodValidationPipe } from '@/infra/http/pipes/zod-validation-pipe';
 import { z } from 'zod';
-import { ZodValidationPipe } from '../pipes/zod-validation-pipe';
+import { Public } from '@/infra/auth/public';
+import { RegisterUseCase } from '@/domain/diet/application/use-cases/register';
 import { UserAlreadyExistsError } from '@/domain/diet/application/use-cases/errors/user-already-exists-error';
 
 const createAccountBodySchema = z.object({
@@ -23,7 +23,7 @@ type createAccountBodySchema = z.infer<typeof createAccountBodySchema>;
 
 @Controller('/accounts')
 @Public()
-export class CreateAccountControler {
+export class CreateAccountController {
   constructor(private register: RegisterUseCase) {}
 
   @Post()

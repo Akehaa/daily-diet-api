@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { RegisterUseCase } from './register';
-import { InMemoryUsersRepository } from 'test/in-memory-users-repository';
+import { InMemoryUsersRepository } from 'test/repositories/in-memory-users-repository';
 import { UserAlreadyExistsError } from './errors/user-already-exists-error';
 import { FakeHasher } from 'test/cryptography/fake-hasher';
 
