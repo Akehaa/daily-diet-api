@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
   "name":"Dener Araujo",
-  "email":"dener@dener.com",
+  "email":"dener2@dener.com",
   "password":"123456"
 }
 
@@ -18,8 +18,23 @@ POST {{baseUrl}}/sessions
 Content-Type: application/json
 
 {
-  "email":"dener@dener.com",
+  "email":"dener2@dener.com",
   "password":"123456"
+}
+
+###
+
+# @name create_meal
+POST {{baseUrl}}/meals
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+      "name": "New Meal",
+      "description":"New description",
+      "date":"2024-01-01",
+      "hour":"14:00:00",
+      "isOnTheDiet": true
 }
 
 ###

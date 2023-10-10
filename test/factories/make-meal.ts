@@ -1,6 +1,9 @@
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';
 import { Meal, MealProps } from '@/domain/diet/enterprise/entities/meal';
+import { PrismaMealMapper } from '@/infra/database/mappers/prisma-meal-mapper';
+import { PrismaService } from '@/infra/database/prisma/prisma.service';
 import { faker } from '@faker-js/faker';
+import { Injectable } from '@nestjs/common';
 
 export function makeMeal(override: Partial<MealProps>, id?: UniqueEntityId) {
   const meal = Meal.create(
@@ -17,4 +20,19 @@ export function makeMeal(override: Partial<MealProps>, id?: UniqueEntityId) {
   );
 
   return meal;
+}
+
+@Injectable()
+export class MealFactory {
+  constructor(private prisma: PrismaService) {}
+
+  async makePrismaMeal(data: Partial<MealProps> = {}): Promise<Meal> {
+    const meal = makeMeal(data);
+
+    await this.prisma.meal.create({
+      data: PrismaMealMapper.toPrisma(meal),
+    });
+
+    return meal;
+  }
 }
