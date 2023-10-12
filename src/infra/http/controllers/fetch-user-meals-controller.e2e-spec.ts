@@ -7,7 +7,7 @@ import { MealFactory } from 'test/factories/make-meal';
 import { UserFactory } from 'test/factories/make-user';
 import request from 'supertest';
 
-describe('Edit Meal (E2E)', () => {
+describe('Fetch User Meals', () => {
   let app: INestApplication;
   let userFactory: UserFactory;
   let mealFactory: MealFactory;
@@ -28,26 +28,35 @@ describe('Edit Meal (E2E)', () => {
     await app.init();
   });
 
-  test('[GET] /meals/:mealId', async () => {
+  test('[GET] /user/meals/:userId', async () => {
     const user = await userFactory.makePrismaUser();
 
     const accessToken = jwt.sign({ sub: user.id.toString() });
 
-    const meal = await mealFactory.makePrismaMeal({
-      userId: user.id,
-      name: 'Meal 01',
-    });
+    await Promise.all([
+      mealFactory.makePrismaMeal({
+        userId: user.id,
+        name: 'Meal 01',
+      }),
+      mealFactory.makePrismaMeal({
+        userId: user.id,
+        name: 'Meal 02',
+      }),
+    ]);
 
-    const mealId = meal.id.toString();
+    const userId = user.id.toString();
 
     const response = await request(app.getHttpServer())
-      .get(`/meals/${mealId}`)
+      .get(`/user/meals/${userId}`)
       .set('Authorization', `Bearer ${accessToken}`)
       .send();
 
     expect(response.statusCode).toBe(200);
     expect(response.body).toEqual({
-      meal: expect.objectContaining({ name: 'Meal 01' }),
+      meals: expect.arrayContaining([
+        expect.objectContaining({ name: 'Meal 01' }),
+        expect.objectContaining({ name: 'Meal 02' }),
+      ]),
     });
   });
 });
