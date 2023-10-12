@@ -11,6 +11,8 @@ import { EditMealController } from './controllers/edit-meal.controller';
 import { EditMealUseCase } from '@/domain/diet/application/use-cases/edit-meal';
 import { DeleteMealController } from './controllers/delete-meal.controller';
 import { DeleteMealUseCase } from '@/domain/diet/application/use-cases/delete-meal';
+import { GetSpecificMealController } from './controllers/get-specific-meal.controller';
+import { GetSpecificMealUseCase } from '@/domain/diet/application/use-cases/get-specific-meal';
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -20,6 +22,7 @@ import { DeleteMealUseCase } from '@/domain/diet/application/use-cases/delete-me
     CreateMealController,
     EditMealController,
     DeleteMealController,
+    GetSpecificMealController,
   ],
   providers: [
     RegisterUseCase,
@@ -27,6 +30,7 @@ import { DeleteMealUseCase } from '@/domain/diet/application/use-cases/delete-me
     CreateMealUseCase,
     EditMealUseCase,
     DeleteMealUseCase,
+    GetSpecificMealUseCase,
   ],
 })
 export class HttpModule {}
