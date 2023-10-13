@@ -2,7 +2,6 @@ import { InMemoryMealsRepository } from 'test/repositories/in-memory-meals-repos
 import { GetUserMetricsUseCase } from './get-user-metrics';
 import { makeMeal } from 'test/factories/make-meal';
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';
-import { NotAllowedError } from '@/core/errors/errors/not-allowed-error';
 
 let inMemoryMealsRepository: InMemoryMealsRepository;
 let sut: GetUserMetricsUseCase;
@@ -54,22 +53,5 @@ describe('Get User Metrics', () => {
       totalMealsOutDiet: 1,
       bestSequenceOfMeals: 2,
     });
-  });
-
-  it('should not be able to get another user metrics', async () => {
-    await inMemoryMealsRepository.create(
-      makeMeal({
-        name: 'meal-04',
-        userId: new UniqueEntityId('user-02'),
-        isOnTheDiet: false,
-      }),
-    );
-
-    const result = await sut.execute({
-      userId: 'user-01',
-    });
-
-    expect(result.isLeft()).toBe(true);
-    expect(result.value).toBeInstanceOf(NotAllowedError);
   });
 });

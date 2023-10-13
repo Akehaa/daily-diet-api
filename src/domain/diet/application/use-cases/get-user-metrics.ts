@@ -1,6 +1,5 @@
-import { Either, left, right } from '@/core/either';
+import { Either, right } from '@/core/either';
 import { MealsRepository } from '../repositories/meals-repository';
-import { NotAllowedError } from '@/core/errors/errors/not-allowed-error';
 import { Injectable } from '@nestjs/common';
 
 interface getUserMetricsUseCaseRequest {
@@ -8,7 +7,7 @@ interface getUserMetricsUseCaseRequest {
 }
 
 type getUserMetricsUseCaseResponse = Either<
-  NotAllowedError,
+  null,
   {
     totalMeals: number;
     totalMealsOnDiet: number;
@@ -34,10 +33,6 @@ export class GetUserMetricsUseCase {
 
     const bestSequenceOfMeals =
       await this.mealsRepository.countSequenceOfTrueBooleans(userId);
-
-    if (!totalMeals) {
-      return left(new NotAllowedError());
-    }
 
     return right({
       totalMeals,
