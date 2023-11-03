@@ -1,6 +1,6 @@
 import { UniqueEntityId } from '@/core/entities/unique-entity-id';
 import { Meal, MealProps } from '@/domain/diet/enterprise/entities/meal';
-import { PrismaMealMapper } from '@/infra/database/mappers/prisma-meal-mapper';
+import { PrismaMealMapper } from '@/infra/database/prisma/mappers/prisma-meal-mapper';
 import { PrismaService } from '@/infra/database/prisma/prisma.service';
 import { faker } from '@faker-js/faker';
 import { Injectable } from '@nestjs/common';

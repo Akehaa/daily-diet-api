@@ -1,6 +1,6 @@
 import { MealsRepository } from '@/domain/diet/application/repositories/meals-repository';
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service';
+import { PrismaService } from '../prisma.service';
 import { Meal } from '@/domain/diet/enterprise/entities/meal';
 import { PrismaMealMapper } from '../mappers/prisma-meal-mapper';
 
