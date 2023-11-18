@@ -1,13 +1,20 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Daily Diet, a diet control API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API developed to assist users in managing their diets, allowing the recording, editing, deletion and statistical analysis of meals. It uses JWT for authentication.
 
-# App
+It follows a Domain-Driven Design (DDD) approach. Has end-to-end and unit tests.
 
-daily diet control app
+# Technologies
+
+<div style="display: inline_block"><br>
+<img align="center" alt="nodejs" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+<img align="center" alt="TypeScript" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg">
+<img align="center" alt="nestjs" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg">
+<img align="center" alt="prisma" height="60" width="80" src="https://vitest.dev/logo.svg">
+<img align="center" alt="postgresql" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">
+<img align="center" alt="docker" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg">
+<img align="center" alt="prisma" height="60" width="80" src="https://img.icons8.com/?size=256&id=YKKmRFS8Utmm&format=png">
+</div>
 
 ## Functional Requirements
 - [x] It should be able to register;
